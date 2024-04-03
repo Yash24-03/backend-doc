@@ -1,6 +1,13 @@
 const mongoose = require("mongoose");
 
-mongoose.connect(process.env.MONGO_URL);
+// Set SSL options based on your requirements
+const sslOptions = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  ssl: false // Disable SSL
+};
+
+mongoose.connect(process.env.MONGO_URL, sslOptions);
 
 const connection = mongoose.connection;
 
